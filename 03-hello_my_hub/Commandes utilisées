@@ -1,0 +1,2 @@
+docker tag app:v1 ellande/exo3:latest
+docker push ellande/exo3

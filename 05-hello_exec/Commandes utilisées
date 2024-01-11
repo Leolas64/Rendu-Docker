@@ -1,0 +1,6 @@
+docker build -t exo5:v1 .
+docker run -d -p 3000:3000 exo5:v1  --name exo5 -e POSTGRES_PASSWORD=abcd -e PGDATA=/var/lib/postgresql/data/pgdata -v /custom/mount:/var/lib/postgresql/data postgres
+docker ps 
+docker exec -it c8b1a7f0be92 bash
+psql -U docker docker
+SELECT COUNT(*) FROM personnes WHERE age > 30;

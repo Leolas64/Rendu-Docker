@@ -1,0 +1,20 @@
+docker create network Bridge
+-- Dans l'exo 5
+docker build -t Appli .
+-- Dans l'exo 6
+docker build -t DataB .
+docker run -d --name conteneur1 -p 3000:3000 Appli
+docker run -d --name conteneur2 -p 3001:3001 DataB
+docker ps
+docker network connect Bridge conteneur1
+docker network connect Bridge conteneur2
+docker network inspect Bridge
+--On récupère les ID des conteneur
+
+--Pour tester  la communication entre les 2
+docker exec -it [id conteneur1] sh
+ping conteneur2
+
+docker exec -it [id conteneur2] sh
+ping conteneur1
+
